@@ -1,4 +1,9 @@
 export default class FancyLogger {
+    private constructor() {}
+
+    // ! --- warn
+    static warn = true;
+
     // * --- node
     private static nodeGreen = "\x1b[32m";
     private static nodeRed = "\x1b[31m";
@@ -17,34 +22,44 @@ export default class FancyLogger {
     static checkEnv(): boolean {
         return typeof window !== "undefined";
     }
-    static log(text: string, color: string): void {
-        this.checkEnv() === true
-            ? console.log(`%c ${text} `, `background: #222; color: ${color}`)
-            : console.log(color, text);
+    static logInBrowser(text: string, color: string): void {
+        console.log(`%c ${text} `, `background: #222; color: ${color}`);
+    }
+    static logInNode(text: string, color: string): void {
+        console.log(color, text);
     }
     static green(text: string): void {
         this.checkEnv() === true
-            ? this.log(text, this.browserGreen)
-            : this.log(text, this.nodeGreen);
+            ? this.logInBrowser(text, this.browserGreen)
+            : this.logInNode(text, this.nodeGreen);
     }
     static red(text: string): void {
         this.checkEnv() === true
-            ? this.log(text, this.browserRed)
-            : this.log(text, this.nodeRed);
+            ? this.logInBrowser(text, this.browserRed)
+            : this.logInNode(text, this.nodeRed);
     }
     static blue(text: string): void {
         this.checkEnv() === true
-            ? this.log(text, this.browserBlue)
-            : this.log(text, this.nodeBlue);
+            ? this.logInBrowser(text, this.browserBlue)
+            : this.logInNode(text, this.nodeBlue);
     }
     static yellow(text: string): void {
         this.checkEnv() === true
-            ? this.log(text, this.browserYellow)
-            : this.log(text, this.nodeYellow);
+            ? this.logInBrowser(text, this.browserYellow)
+            : this.logInNode(text, this.nodeYellow);
     }
     static cyan(text: string): void {
         this.checkEnv() === true
-            ? this.log(text, this.browserCyan)
-            : this.log(text, this.nodeCyan);
+            ? this.logInBrowser(text, this.browserCyan)
+            : this.logInNode(text, this.nodeCyan);
+    }
+    static custom(text: string, color: string) {
+        if (this.warn)
+            console.warn(
+                "Keep in mind, Hex codes doesn't work in terminal, in case if you don't want to see this message again chenge value of property warn to false: FancyLogger.warn = false"
+            );
+        this.checkEnv() === true
+            ? this.logInBrowser(text, color)
+            : this.logInNode(text, color);
     }
 }
