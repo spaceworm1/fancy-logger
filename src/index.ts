@@ -19,13 +19,13 @@ export default class FancyLogger {
     private static browserCyan = "#00ccff";
 
     // check environment if it's node or browser
-    static checkEnv(): boolean {
+    private static checkEnv(): boolean {
         return typeof window !== "undefined";
     }
-    static logInBrowser(text: string, color: string): void {
+    private static logInBrowser(text: string, color: string): void {
         console.log(`%c ${text} `, `background: #222; color: ${color}`);
     }
-    static logInNode(text: string, color: string): void {
+    private static logInNode(text: string, color: string): void {
         console.log(color, text);
     }
     static green(text: string): void {
