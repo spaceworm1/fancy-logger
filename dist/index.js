@@ -3,38 +3,35 @@ export default class FancyLogger {
     static checkEnv() {
         return typeof window !== "undefined";
     }
-    static basedEnv(text, color) {
+    static log(text, color) {
         this.checkEnv() === true
             ? console.log(`%c ${text} `, `background: #222; color: ${color}`)
             : console.log(color, text);
     }
     static green(text) {
         this.checkEnv() === true
-            ? this.basedEnv(text, this.browserGreen)
-            : this.basedEnv(text, this.nodeGreen);
+            ? this.log(text, this.browserGreen)
+            : this.log(text, this.nodeGreen);
     }
     static red(text) {
         this.checkEnv() === true
-            ? this.basedEnv(text, this.browserRed)
-            : this.basedEnv(text, this.nodeRed);
+            ? this.log(text, this.browserRed)
+            : this.log(text, this.nodeRed);
     }
     static blue(text) {
         this.checkEnv() === true
-            ? this.basedEnv(text, this.browserBlue)
-            : this.basedEnv(text, this.nodeBlue);
+            ? this.log(text, this.browserBlue)
+            : this.log(text, this.nodeBlue);
     }
     static yellow(text) {
         this.checkEnv() === true
-            ? this.basedEnv(text, this.browserYellow)
-            : this.basedEnv(text, this.nodeYellow);
+            ? this.log(text, this.browserYellow)
+            : this.log(text, this.nodeYellow);
     }
     static cyan(text) {
         this.checkEnv() === true
-            ? this.basedEnv(text, this.browserCyan)
-            : this.basedEnv(text, this.nodeCyan);
-    }
-    static log(text) {
-        console.log(text);
+            ? this.log(text, this.browserCyan)
+            : this.log(text, this.nodeCyan);
     }
 }
 // * --- node
