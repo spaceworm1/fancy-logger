@@ -19,7 +19,7 @@ export default class FancyLogger {
     }
     static basedEnv(text: string, color: string): void {
         this.checkEnv() === true
-            ? console.log(`%c ${text}', 'background: #222; color: ${color}`)
+            ? console.log(`%c ${text} `, `background: #222; color: ${color}`)
             : console.log(color, text);
     }
     static green(text: string): void {
@@ -51,5 +51,3 @@ export default class FancyLogger {
         console.log(text);
     }
 }
-
-FancyLogger.blue("hey");
