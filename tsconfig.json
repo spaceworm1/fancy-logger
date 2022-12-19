@@ -1,0 +1,13 @@
+{
+  "include": [
+    "src/**/*"
+  ],
+  "compilerOptions": {
+    "target": "ES2016",
+    "allowJs": true,
+    "declaration": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "declarationMap": true
+  }
+}
