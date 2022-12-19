@@ -1,9 +1,9 @@
 {
     "name": "@spaceworm/fancy-logger",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Fancy Logger!",
     "type": "module",
-    "main": "index.js",
+    "main": "./dist/index.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/spaceworm1/fancy-logger.git"
